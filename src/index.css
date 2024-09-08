@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS LOADER */
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  --_c: no-repeat radial-gradient(farthest-side, #3af8dc 92%, #0000);
+  background:
+    var(--_c) top,
+    var(--_c) left,
+    var(--_c) right,
+    var(--_c) bottom;
+  background-size: 12px 12px;
+  animation: l7 1s infinite;
+}
+@keyframes l7 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+
+/* HTML: <div class="mini-loader"></div> */
+.mini-loader {
+  width: 25px;
+  aspect-ratio: 1;
+  display: grid;
+  -webkit-mask: conic-gradient(from 15deg, #0000, #000);
+  animation: l26 1s infinite steps(12);
+}
+
+.mini-loader,
+.mini-loader:before,
+.mini-loader:after {
+  background:
+    radial-gradient(closest-side at 50% 12.5%, #ffffff 96%, #0000) 50% 0/20% 80%
+      repeat-y,
+    radial-gradient(closest-side at 12.5% 50%, #ffffff 96%, #0000) 0 50%/80% 20%
+      repeat-x;
+}
+.mini-loader:before,
+.mini-loader:after {
+  content: "";
+  grid-area: 1/1;
+  transform: rotate(30deg);
+}
+.mini-loader:after {
+  transform: rotate(60deg);
+}
+
+@keyframes l26 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+/* SCROLLBAR */
+/* Styles for WebKit browsers (e.g., Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #191919; /* Color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000; /* Color of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000000; /* Color of the scrollbar thumb on hover */
+}
+
+/* ANIMATION for DASHBOARD TEXT */
+
+#lborder:before {
+  position: absolute;
+  bottom: -20px;
+  left: 0%;
+  right: 100%;
+  content: "";
+  height: 5px;
+  width: 30px;
+  border-radius: 20px;
+  background-color: #c50723;
+  animation: move 3s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    left: 0%;
+    right: 100%;
+    width: 30px;
+  }
+  25% {
+    left: 25%;
+    right: 75%;
+    width: 150px;
+  }
+  50% {
+    left: 100%;
+    right: 0%;
+    width: 30px;
+  }
+  75% {
+    left: 25%;
+    right: 75%;
+    width: 150px;
+  }
+  100% {
+    right: 100%;
+    left: 0%;
+    width: 30px;
+  }
+}
